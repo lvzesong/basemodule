@@ -1,0 +1,159 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
+//        externalNativeBuild {
+//            cmake {
+//                cppFlags "-frtti -fexceptions"
+//            }
+//        }
+        multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+//    externalNativeBuild {
+//        cmake {
+//            path "CMakeLists.txt"
+//        }
+//    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            //signingConfig signingConfigs.androidSigning
+            //buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "String", "LOG_TAG", "\"basemodule\""
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            //signingConfig signingConfigs.androidSigning
+            //buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "String", "LOG_TAG", "\"basemodule\""
+        }
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xmaxerrs" << "500" // or whatever number you want
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    api rootProject.ext.dependencies["constraint-layout"]
+    api rootProject.ext.dependencies["recyclerview"]
+    api rootProject.ext.dependencies["multidex"]
+    api rootProject.ext.dependencies["startup"]
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+
+    //注解动态权限
+    api rootProject.ext.dependencies["permissionsdispatcher"]
+    annotationProcessor rootProject.ext.dependencies["permissionsdispatcher_processor"]
+
+    //AAC组件
+    api rootProject.ext.dependencies["lifecycle_runtime"]
+    api rootProject.ext.dependencies["lifecycle_extensions"]
+    annotationProcessor rootProject.ext.dependencies["lifecycle_compiler"]
+
+    //gson
+    api rootProject.ext.dependencies["gson"]
+
+    //rxjava
+    api rootProject.ext.dependencies["rxjava2"]
+
+    // Because RxAndroid releases are few and far between, it is recommended you also
+
+    // explicitly depend on RxJava's latest version for bug fixes and new features.
+
+    // (see https://github.com/ReactiveX/RxJava/releases for latest 2.x.x version)
+    api rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["rxlifecycle"]
+    api rootProject.ext.dependencies["rxlifecycle_android"]
+    api rootProject.ext.dependencies["rxlifecycle_components"]
+    api rootProject.ext.dependencies["rxlifecycle_android_lifecycle"]
+    api rootProject.ext.dependencies["rxbinding"]
+
+    //fresco
+    api rootProject.ext.dependencies["fresco"]
+    api rootProject.ext.dependencies["imagepipeline_okhttp3"]
+
+    //glide
+    api(rootProject.ext.dependencies["glide"]) {
+        exclude group: "com.android.support"
+    }
+
+    //livedatabus
+    api rootProject.ext.dependencies["livedatabus"]
+    api rootProject.ext.dependencies["arouter_api"]
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    //api rootProject.ext.dependencies["glide-compiler"]
+
+    //
+    api rootProject.ext.dependencies["smartRefreshLayout"]
+    api rootProject.ext.dependencies["bindingcollectionadapter_recyclerview"]
+    api rootProject.ext.dependencies["bindingcollectionadapter"]
+
+    //okhttp
+
+    //implementation "com.squareup.okhttp3:mockwebserver:$rootProject.okhttp"
+    api rootProject.ext.dependencies["okhttpLogger"]
+
+    //js 注入
+    // api 'com.github.lzyzsd:jsbridge:1.0.4'
+
+
+    //chrome 调试工具 chrome://inspect/#devices     https://github.com/facebook/stetho
+
+    //debugImplementation "com.facebook.stetho:stetho-okhttp3:$rootProject.stetho"
+    api(rootProject.ext.dependencies["retrofit"])
+            { exclude group: 'com.squareup.okhttp3' }
+    implementation rootProject.ext.dependencies["retrofitRxjava2Adapter"]
+
+    //implementation "com.squareup.retrofit2:converter-scalars:$rootProject.retrofitScalars"
+    implementation rootProject.ext.dependencies["retrofitGsonConveter"]
+
+    //    api 'com.ethanhua:skeleton:1.1.2'
+
+    //    api 'io.supercharge:shimmerlayout:2.1.0'
+
+    ///api "com.willowtreeapps.spruce:spruce-android:$rootProject.spruce_android"
+
+    //内存泄漏检查
+    debugImplementation rootProject.ext.dependencies["leakcanary"]
+    //动态权限
+
+    // implementation "com.github.tbruyelle:rxpermissions:$rootProject.rxPermission"
+
+    //    implementation "com.github.hotchemi:permissionsdispatcher:$rootProject.permissionsDispatcher"
+
+    //    annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:$rootProject.permissionsDispatcher"
+    implementation 'com.orhanobut:logger:1.15'
+
+
+}
