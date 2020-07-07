@@ -10,10 +10,8 @@ import androidx.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.base.basemodule.config.AppConfig;
-import com.base.basemodule.net.cookie.PersistentCookieJar;
 import com.base.basemodule.net.logger.Logutil;
 
-import leakcanary.LeakCanary;
 
 /**
  * Created by lzs on 2017/6/18 14:30
