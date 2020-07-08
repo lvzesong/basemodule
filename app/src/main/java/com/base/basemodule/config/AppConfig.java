@@ -19,7 +19,7 @@ public class AppConfig {
     public static final class AppConfigBuilder {
         private NetConfig netConfig;
 
-        private AppConfigBuilder() {
+        public AppConfigBuilder() {
         }
 
         public static AppConfigBuilder anAppConfig() {
