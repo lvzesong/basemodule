@@ -31,7 +31,7 @@ public class NetConfig {
         //RESTful 的 baseurl  需/结尾
         private String baseUrl = "";
 
-        private NetConfigBuilder() {
+        public NetConfigBuilder() {
         }
 
         public static NetConfigBuilder aNetConfig() {
