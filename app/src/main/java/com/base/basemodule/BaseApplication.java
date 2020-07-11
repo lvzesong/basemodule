@@ -39,7 +39,7 @@ public abstract class BaseApplication extends MultiDexApplication implements IAp
         myApplication = this;
         appConfig = createAppConfig();
         initArouter();
-        Logutil.init(BuildConfig.DEBUG, BuildConfig.LOG_TAG);
+        Logutil.init(appConfig.isDEBUG(), BuildConfig.LOG_TAG);
 //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            return;
 //        }
@@ -59,7 +59,7 @@ public abstract class BaseApplication extends MultiDexApplication implements IAp
     }
 
     private void initArouter() {
-        if (BuildConfig.DEBUG) {
+        if (appConfig.isDEBUG()) {
             //ARouter.setLogger();
             ARouter.openDebug();
             ARouter.openLog();
