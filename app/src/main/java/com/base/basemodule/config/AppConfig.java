@@ -1,6 +1,16 @@
 package com.base.basemodule.config;
 
 public class AppConfig {
+    public boolean isDEBUG() {
+        return DEBUG;
+    }
+
+    public void setDEBUG(boolean DEBUG) {
+        this.DEBUG = DEBUG;
+    }
+
+    private boolean DEBUG = false;
+
     public NetConfig getNetConfig() {
         return netConfig;
     }

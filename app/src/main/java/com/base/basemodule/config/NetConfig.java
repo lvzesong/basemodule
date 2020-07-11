@@ -34,7 +34,7 @@ public class NetConfig {
         public NetConfigBuilder() {
         }
 
-        public static NetConfigBuilder aNetConfig() {
+        public static NetConfigBuilder anNetConfig() {
             return new NetConfigBuilder();
         }
 
