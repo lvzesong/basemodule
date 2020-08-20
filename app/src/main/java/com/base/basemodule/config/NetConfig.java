@@ -1,5 +1,6 @@
 package com.base.basemodule.config;
 
+import okhttp3.Interceptor;
 import retrofit2.Converter;
 
 
@@ -15,6 +16,14 @@ public class NetConfig {
     }
 
     Converter.Factory jsonConverterFactory;
+
+    public Interceptor getInterceptor() {
+        return interceptor;
+    }
+
+    //拦截器
+    Interceptor interceptor;
+
     private NetConfig() {
     }
 
@@ -28,6 +37,8 @@ public class NetConfig {
 
     public static final class NetConfigBuilder {
         Converter.Factory jsonConverterFactory;
+        //拦截器
+        Interceptor interceptor;
         //RESTful 的 baseurl  需/结尾
         private String baseUrl = "";
 
@@ -48,10 +59,16 @@ public class NetConfig {
             return this;
         }
 
+        public NetConfigBuilder withNetWorkInterceptor(Interceptor interceptor) {
+            this.interceptor = interceptor;
+            return this;
+        }
+
         public NetConfig build() {
             NetConfig netConfig = new NetConfig();
             netConfig.setBaseUrl(baseUrl);
             netConfig.jsonConverterFactory = this.jsonConverterFactory;
+            netConfig.interceptor = this.interceptor;
             return netConfig;
         }
     }

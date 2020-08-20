@@ -41,7 +41,7 @@ public class RetrofitServiceImpl implements IRetrofitService {
             HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(new HttpLogger());
             logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             OkHttpClient client = new OkHttpClient.Builder()
-                    .addNetworkInterceptor(new Interceptor() {
+                    .addNetworkInterceptor(BaseApplication.getApplication().getAppConfig().getNetConfig().getInterceptor() != null ? BaseApplication.getApplication().getAppConfig().getNetConfig().getInterceptor() : new Interceptor() {
                         @Override
                         public Response intercept(Chain chain) throws IOException {
                             Request originalRequest = chain

@@ -68,7 +68,7 @@ dependencies {
     api rootProject.ext.dependencies["recyclerview"]
     api rootProject.ext.dependencies["multidex"]
     api rootProject.ext.dependencies["startup"]
-    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    api 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
 
