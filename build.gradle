@@ -48,6 +48,8 @@ ext {
             // butterknife: "8.8.1",
             glide                   : "4.11.0",
 
+            dagger                  : "2.17",
+
             objectboxVersion        : '2.6.0',
             //路由
             arouter_api             : "1.5.0",
@@ -146,7 +148,14 @@ ext {
             leakcanary_no_op                     : "com.squareup.leakcanary:leakcanary-android-no-op:${dependVersion.leakcanary}",
             leakcanary_fragment                  : "com.squareup.leakcanary:leakcanary-support-fragment:${dependVersion.leakcanary}",
 
-            livedatabus                          : "com.jeremyliao:live-event-bus-x:${dependVersion.livedatabus}"
+            livedatabus                          : "com.jeremyliao:live-event-bus-x:${dependVersion.livedatabus}",
+
+
+            dagger2                              : "com.google.dagger:dagger:${dependVersion.dagger}",
+            dagger2_compiler                     : "com.google.dagger:dagger-compiler:${dependVersion.dagger}",
+            dagger2_android                      : "com.google.dagger:dagger-android:${dependVersion.dagger}",
+            dagger2_support                      : "com.google.dagger:dagger-android-support:${dependVersion.dagger}",
+            dagger2_processor                    : "com.google.dagger:dagger-android-processor:${dependVersion.dagger}"
     ]
 
     subprojects {
