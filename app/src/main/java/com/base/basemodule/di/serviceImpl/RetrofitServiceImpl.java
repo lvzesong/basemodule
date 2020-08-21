@@ -20,7 +20,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -69,7 +69,7 @@ public class RetrofitServiceImpl implements IRetrofitService {
                     //.addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(BaseApplication.getApplication().getAppConfig().getNetConfig().getJsonConverterFactory() == null ? GsonConverterFactory.create() : BaseApplication.getApplication().getAppConfig().getNetConfig().getJsonConverterFactory())//
                     //.addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                     .client(client)
                     .build();
         }

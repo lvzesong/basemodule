@@ -70,7 +70,7 @@ ext {
             okhttpLogger            : '4.7.2',
 
             retrofit                : '2.9.0',
-            retrofitRxjava2Adapter  : '2.9.0',
+            retrofitRxjava3Adapter  : '2.9.0',
             retrofitScalars         : '2.9.0',
             retrofitGsonConveter    : '2.9.0',
 
@@ -142,7 +142,7 @@ ext {
             okhttpLogger                         : "com.squareup.okhttp3:logging-interceptor:${dependVersion.okhttpLogger}",
 
             retrofit                             : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
-            retrofitRxjava2Adapter               : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofitRxjava2Adapter}",
+            retrofitRxjava3Adapter               : "com.squareup.retrofit2:adapter-rxjava3:${dependVersion.retrofitRxjava3Adapter}",
             retrofitGsonConveter                 : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofitGsonConveter}",
             leakcanary                           : "com.squareup.leakcanary:leakcanary-android:${dependVersion.leakcanary}",
             leakcanary_no_op                     : "com.squareup.leakcanary:leakcanary-android-no-op:${dependVersion.leakcanary}",
