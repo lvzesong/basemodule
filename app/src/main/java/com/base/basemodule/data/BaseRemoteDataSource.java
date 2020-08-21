@@ -14,7 +14,7 @@ import retrofit2.Retrofit;
  */
 public class BaseRemoteDataSource {
 
-    @Autowired(name = "base/yourservicegroupname/hello")
+    @Autowired(name = "base/net/Retrofit")
     RetrofitServiceImpl retrofitService;
     protected Retrofit retrofit;
 

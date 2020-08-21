@@ -117,6 +117,7 @@ dependencies {
     //
     api rootProject.ext.dependencies["smartRefreshLayout"]
     api rootProject.ext.dependencies["bindingcollectionadapter_recyclerview"]
+    api rootProject.ext.dependencies["bindingcollectionadapter_viewpager2"]
     api rootProject.ext.dependencies["bindingcollectionadapter"]
 
     //okhttp
