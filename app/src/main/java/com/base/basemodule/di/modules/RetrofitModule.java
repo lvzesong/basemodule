@@ -101,7 +101,7 @@ public final class RetrofitModule {
             mMessage.append(message.concat("\n"));
             // 请求或者响应结束，打印整条日志
             if (message.startsWith("<-- END HTTP")) {
-                Logutil.e(mMessage.toString(), null);
+                Logutil.i(mMessage.toString());
                 mMessage.setLength(0);
             }
         }
