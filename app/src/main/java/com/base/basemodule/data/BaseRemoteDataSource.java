@@ -15,7 +15,7 @@ import retrofit2.Retrofit;
 public class BaseRemoteDataSource {
 
     @Autowired(name = "base/net/Retrofit")
-    RetrofitServiceImpl retrofitService;
+    public RetrofitServiceImpl retrofitService;
     protected Retrofit retrofit;
 
     public BaseRemoteDataSource() {
