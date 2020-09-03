@@ -90,7 +90,7 @@ ext {
 
             //class注入
             aspectJ                 : '1.9.2',
-            smartRefreshLayout      : '1.1.0',
+            smartRefreshLayout      : '2.0.1',
 
             livedatabus             : '1.7.2'
     ]
@@ -115,6 +115,10 @@ ext {
             autosize                             : "me.jessyan:autosize:${dependVersion.autosize}",
             //下啦刷新 SmartRefreshLayout  https://github.com/scwang90/SmartRefreshLayout
             smartRefreshLayout                   : "com.scwang.smartrefresh:SmartRefreshLayout:${dependVersion.smartRefreshLayout}",
+
+
+
+
 
             bindingcollectionadapter             : "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:${dependVersion.bindingcollectionadapter}",
             bindingcollectionadapter_recyclerview: "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:${dependVersion.bindingcollectionadapter}",

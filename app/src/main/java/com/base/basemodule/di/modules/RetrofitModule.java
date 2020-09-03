@@ -83,7 +83,6 @@ public final class RetrofitModule {
     }
 
 
-
     private class HttpLogger implements HttpLoggingInterceptor.Logger {
         private StringBuilder mMessage = new StringBuilder();
 
