@@ -34,6 +34,7 @@ import com.trello.rxlifecycle4.components.support.RxFragment;
 import java.util.ArrayList;
 
 /**
+ * 懒加载需配合MaxLifecyclePagerAdapter 使用
  * Created by lzs on 2017/6/18 14:11
  * E-Mail Address：343067508@qq.com
  */
@@ -42,22 +43,13 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     private static final String TAG = "BaseDBFragment";
     protected Context mContext;
 
-//    protected BackPressHandler mBackPressHandler;
-//
-//    public interface BackPressHandler {
-//
-//        public abstract void setSelectedFragment(Fragment selectedFragment);
-//    }
 
     protected VM viewModel;
 
     protected BD dataBinding;
 
-    //Fragment的View加载完毕的标记
-    private boolean isViewCreated;
+    private boolean isLoad;
 
-    //Fragment对用户可见的标记
-    private boolean isUIVisible;
     protected ProgressDialog progressDialog;
 
     protected abstract Class<VM> getViewModel();
@@ -128,21 +120,6 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
 //        return Color.rgb(red, green, blue);
 //    }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (BuildConfig.DEBUG) {
-            Log.e(TAG, "setUserVisibleHint  isVisibleToUser:" + isVisibleToUser + "  isViewCreated:" + isViewCreated);
-        }
-        //isVisibleToUser这个boolean值表示:该Fragment的UI 用户是否可见
-        //Logutil.e("setUserVisibleHint:"+isVisibleToUser);
-        if (isVisibleToUser) {
-            isUIVisible = true;
-            lazyLoad();
-        } else {
-            isUIVisible = false;
-        }
-    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -150,28 +127,21 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
         if (BuildConfig.DEBUG) {
             Log.e(TAG, "onViewCreated");
         }
-        isViewCreated = true;
-        //懒加载
-        lazyLoad();
+
     }
 
-    protected abstract void loadData();
-
-    private void lazyLoad() {
-        //Logutil.e("isViewCreated "+isViewCreated+" isUIVisible:"+isUIVisible);
-        if (isViewCreated && isUIVisible) {
-            //Logutil.e("lazyLoad");
-            if (loadDataOnce) {
-                loadData();
-                loadDataOnce = false;
-            }
-            //数据加载完毕,恢复标记,防止重复加载
-            isViewCreated = false;
-            isUIVisible = false;
+    private void tryLoad() {
+        if (!isLoad) {
+            lazyData();
+            isLoad = true;
         }
     }
 
-    private boolean loadDataOnce = true;
+    /**
+     * 懒加载
+     */
+    public abstract void lazyData();
+
 
     @Nullable
     @Override
@@ -219,6 +189,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
         if (BuildConfig.DEBUG) {
             Log.e(TAG, "onResume");
         }
+        tryLoad();
     }
 
     @Override
@@ -279,11 +250,6 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
         }
     }
 
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        //Log.e(TAG, "onHiddenChanged:" + hidden);
-    }
 
 //    //设置顶部第一个布局内边距为状态栏高度
 //    protected void setStatusBarPadding(View view) {
@@ -360,11 +326,6 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
         }
         Toast.makeText(mContext.getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
-
-    public void setLoadDataOnce(boolean loadDataOnce) {
-        this.loadDataOnce = loadDataOnce;
-    }
-
 
     protected void route(String path) {
         ARouter.getInstance().build(path).navigation();

@@ -27,11 +27,7 @@ import com.trello.rxlifecycle4.components.support.RxFragment;
 public abstract class BaseFragment<VM extends BaseViewModel> extends RxFragment {
     protected VM viewModel;
     protected Context mContext;
-    //Fragment的View加载完毕的标记
-    private boolean isViewCreated;
 
-    //Fragment对用户可见的标记
-    private boolean isUIVisible;
 
     protected abstract Class<VM> getViewModel();
 
@@ -59,18 +55,7 @@ public abstract class BaseFragment<VM extends BaseViewModel> extends RxFragment 
         return rootView;
     }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        //isVisibleToUser这个boolean值表示:该Fragment的UI 用户是否可见
-        if (isVisibleToUser) {
-            isUIVisible = true;
-            lazyLoad();
-        } else {
-            isUIVisible = false;
-        }
-    }
-    protected <T extends Activity> void  startActivity(Class<T> activityClass){
+    protected <T extends Activity> void startActivity(Class<T> activityClass) {
         Intent intent = new Intent(mContext, activityClass);
 
         if (Build.VERSION.SDK_INT >= 20) {
@@ -80,38 +65,47 @@ public abstract class BaseFragment<VM extends BaseViewModel> extends RxFragment 
             startActivity(intent);
         }
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        isViewCreated = true;
-        //懒加载
-        lazyLoad();
     }
 
-    protected abstract void loadData();
 
-    protected void lazyLoad() {
-        if (isViewCreated && isUIVisible) {
-            loadData();
-            //数据加载完毕,恢复标记,防止重复加载
-            isViewCreated = false;
-            isUIVisible = false;
-        }
-    }
-
-    protected void shortToast(String msg){
-        if(TextUtils.isEmpty(msg)){
+    protected void shortToast(String msg) {
+        if (TextUtils.isEmpty(msg)) {
             return;
         }
-        Toast.makeText(mContext.getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext.getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
-    protected void longToast(String msg){
-        if(TextUtils.isEmpty(msg)){
+    private boolean isLoad;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        tryLoad();
+    }
+
+    private void tryLoad() {
+        if (!isLoad) {
+            lazyData();
+            isLoad = true;
+        }
+    }
+
+    /**
+     * 懒加载
+     */
+    public abstract void lazyData();
+
+    protected void longToast(String msg) {
+        if (TextUtils.isEmpty(msg)) {
             return;
         }
-        Toast.makeText(mContext.getApplicationContext(),msg,Toast.LENGTH_LONG).show();
+        Toast.makeText(mContext.getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
+
     protected abstract void initView(View view);
 
     protected void logd(String msg) {

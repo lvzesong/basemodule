@@ -20,6 +20,7 @@ public abstract class BaseViewModel extends ViewModel implements Observable {
     public BaseViewModel() {
         ARouter.getInstance().inject(this);
     }
+
     public SingleLiveEvent<DataStatus<String>> getProgressEvent() {
         return progressEvent;
     }
@@ -58,6 +59,10 @@ public abstract class BaseViewModel extends ViewModel implements Observable {
 
     protected <T> void postSuccessLoaddata(String msg, T data) {
         loadStatusSingleLiveEvent.postValue(DataStatus.success(data, msg));
+    }
+
+    protected <T> void postSuccessLoaddata(T data) {
+        loadStatusSingleLiveEvent.postValue(DataStatus.success(data, ""));
     }
 
     protected void postFailedLoaddata() {
