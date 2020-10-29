@@ -112,6 +112,7 @@ dependencies {
     api rootProject.ext.dependencies["livedatabus"]
     api rootProject.ext.dependencies["arouter_api"]
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
     //api rootProject.ext.dependencies["glide-compiler"]
 
     //
