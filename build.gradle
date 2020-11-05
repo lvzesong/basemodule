@@ -122,7 +122,7 @@ ext {
 
             bindingcollectionadapter             : "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:${dependVersion.bindingcollectionadapter}",
             bindingcollectionadapter_recyclerview: "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:${dependVersion.bindingcollectionadapter}",
-            bindingcollectionadapter_viewpager2: "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-viewpager2:${dependVersion.bindingcollectionadapter}",
+            bindingcollectionadapter_viewpager2  : "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-viewpager2:${dependVersion.bindingcollectionadapter}",
 
 
             //注解动态权限  https://github.com/permissions-dispatcher/PermissionsDispatcher

@@ -62,7 +62,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
         super.onCreate(savedInstanceState);
         ARouter.getInstance().inject(this);
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onCreate");
+            Log.i(TAG, "onCreate");
         }
         if (isBindLifeWithActivity()) {
             viewModel = new ViewModelProvider(getActivity()).get(getViewModel());
@@ -125,7 +125,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onViewCreated");
+            Log.i(TAG, "onViewCreated");
         }
 
     }
@@ -147,7 +147,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onCreateView");
+            Log.i(TAG, "onCreateView");
         }
         if (dataBinding == null) {
             mContext = getActivity();
@@ -179,7 +179,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     public void onPause() {
         super.onPause();
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onPause");
+            Log.i(TAG, "onPause");
         }
     }
 
@@ -187,7 +187,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     public void onResume() {
         super.onResume();
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onResume");
+            Log.i(TAG, "onResume");
         }
         tryLoad();
     }
@@ -196,7 +196,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     public void onDestroyView() {
         super.onDestroyView();
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onDestroyView");
+            Log.i(TAG, "onDestroyView");
         }
     }
 
@@ -204,7 +204,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onActivityCreated");
+            Log.i(TAG, "onActivityCreated");
         }
     }
 
@@ -212,7 +212,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     public void onDestroy() {
         super.onDestroy();
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onActivityCreated");
+            Log.i(TAG, "onActivityCreated");
         }
     }
 
@@ -220,7 +220,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     public void onAttach(Context context) {
         super.onAttach(context);
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onAttach context");
+            Log.i(TAG, "onAttach context");
         }
     }
 
@@ -229,7 +229,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onAttach activity");
+            Log.i(TAG, "onAttach activity");
         }
     }
 
@@ -238,7 +238,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     public void onAttachFragment(Fragment childFragment) {
         super.onAttachFragment(childFragment);
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onAttachFragment");
+            Log.i(TAG, "onAttachFragment");
         }
     }
 
@@ -246,7 +246,7 @@ public abstract class BaseDBFragment<VM extends BaseViewModel, BD extends ViewDa
     public void onDetach() {
         super.onDetach();
         if (BuildConfig.DEBUG) {
-            Log.e(TAG, "onDetach");
+            Log.i(TAG, "onDetach");
         }
     }
 

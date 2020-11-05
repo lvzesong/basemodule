@@ -29,10 +29,10 @@ public class BitmapUtils {
     private static final String failed = "-1";
 
 
-    public static Bitmap loadBitmapRGB_565(String path){
+    public static Bitmap loadBitmapRGB_565(String path) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
-        Bitmap bitmap = BitmapFactory.decodeFile(path,options);
+        Bitmap bitmap = BitmapFactory.decodeFile(path, options);
         return bitmap;
     }
 
@@ -198,7 +198,6 @@ public class BitmapUtils {
             return false;
         }
     }
-
 
 
     /**
@@ -427,7 +426,7 @@ public class BitmapUtils {
     }
 
 
-    public static byte[] bitmapToByteArray(Bitmap bmp){
+    public static byte[] bitmapToByteArray(Bitmap bmp) {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.JPEG, 70, output);
         byte[] result = output.toByteArray();
@@ -482,11 +481,12 @@ public class BitmapUtils {
 
     static {
         System.loadLibrary("jpegbither");
-        System.loadLibrary("bitherlib");
+        // System.loadLibrary("bitherlib");
     }
 
     /**
-     *   jni 极限压缩
+     * jni 极限压缩
+     *
      * @param bit
      * @param width
      * @param height

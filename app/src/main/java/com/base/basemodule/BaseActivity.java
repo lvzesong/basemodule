@@ -281,22 +281,22 @@ public abstract class BaseActivity extends RxAppCompatActivity implements Presen
         Fragment fragment = (Fragment) ARouter.getInstance().build(path).navigation(context, new NavigationCallback() {
             @Override
             public void onFound(Postcard postcard) {
-                Log.e("lzs", "onFound:");
+                Log.i("lzs", "getRouteFragment onFound:");
             }
 
             @Override
             public void onLost(Postcard postcard) {
-                Log.e("lzs", "onLost:");
+                Log.i("lzs", "getRouteFragment onLost:");
             }
 
             @Override
             public void onArrival(Postcard postcard) {
-                Log.e("lzs", "onArrival:");
+                Log.i("lzs", "getRouteFragment onArrival:");
             }
 
             @Override
             public void onInterrupt(Postcard postcard) {
-                Log.e("lzs", "onInterrupt:");
+                Log.i("lzs", "getRouteFragment onInterrupt:");
             }
         });
         return fragment;
