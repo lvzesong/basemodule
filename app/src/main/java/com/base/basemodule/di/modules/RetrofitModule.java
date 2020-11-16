@@ -16,6 +16,9 @@ import com.base.basemodule.net.cookie.persistence.SharedPrefsCookiePersistor;
 import com.base.basemodule.net.logger.JsonUtil;
 import com.base.basemodule.net.logger.Logutil;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -92,9 +95,15 @@ public final class RetrofitModule {
             if (message.startsWith("--> POST")) {
                 mMessage.setLength(0);
             }
+            boolean flag = false;
+            try {
+                JSONObject jsonObject = new JSONObject(message);
+                flag = true;
+            } catch (JSONException e) {
+            }
             // 以{}或者[]形式的说明是响应结果的json数据，需要进行格式化
             if ((message.startsWith("{") && message.endsWith("}"))
-                    || (message.startsWith("[") && message.endsWith("]"))) {
+                    || (message.startsWith("[") && message.endsWith("]")) || flag) {
                 message = JsonUtil.formatJson(message);
             }
             mMessage.append(message.concat("\n"));
