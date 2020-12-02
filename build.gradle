@@ -66,8 +66,8 @@ ext {
             rxlifecycle             : "4.0.0",
             rxbinding               : "4.0.0",
             //网络请求
-            okhttp                  : "4.7.2",
-            okhttpLogger            : '4.7.2',
+            okhttp                  : "3.12.0",
+            okhttpLogger            : '3.12.0',
 
             retrofit                : '2.9.0',
             retrofitRxjava3Adapter  : '2.9.0',
