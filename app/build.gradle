@@ -134,8 +134,12 @@ dependencies {
 
     //debugImplementation "com.facebook.stetho:stetho-okhttp3:$rootProject.stetho"
     api(rootProject.ext.dependencies["retrofit"])
-            { exclude group: 'com.squareup.okhttp3' }
-   api rootProject.ext.dependencies["retrofitRxjava3Adapter"]
+            {
+                exclude group: 'com.squareup.okhttp3'
+                //指定禁止传递依赖
+                transitive false
+            }
+    api rootProject.ext.dependencies["retrofitRxjava3Adapter"]
 
     //implementation "com.squareup.retrofit2:converter-scalars:$rootProject.retrofitScalars"
     api rootProject.ext.dependencies["retrofitGsonConveter"]
