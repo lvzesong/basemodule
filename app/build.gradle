@@ -171,7 +171,4 @@ dependencies {
     api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-x'
     api 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    implementation ('com.squareup.okhttp3:okhttp:3.12.0') {
-        force = true
-    }
 }
