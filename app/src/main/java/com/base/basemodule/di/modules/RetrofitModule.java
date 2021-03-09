@@ -57,7 +57,7 @@ public final class RetrofitModule {
                                     .request()
                                     .newBuilder()
                                     .addHeader("Connection", "close")
-                                    .header("Accept-Encoding", "identity")
+                                    .addHeader("Accept-Encoding", "identity")
                                     .build();
                             Response response = chain.proceed(originalRequest);
                             return response;
@@ -70,7 +70,7 @@ public final class RetrofitModule {
                     .connectTimeout(15, TimeUnit.SECONDS)
                     .readTimeout(15, TimeUnit.SECONDS)
                     .writeTimeout(15, TimeUnit.SECONDS)
-                    .retryOnConnectionFailure(true) //取消自动重连
+                    .retryOnConnectionFailure(false) //取消自动重连
                     // .addNetworkInterceptor(new StethoInterceptor())
                     .build();
 
