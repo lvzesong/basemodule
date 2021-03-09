@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.0.0"
+        classpath "com.android.tools.build:gradle:4.1.1"
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -36,63 +36,64 @@ ext {
     ]
 
     def dependVersion = [
-            support_x               : "1.1.0",
-            support                 : "28.0.0",
-            multidex                : '2.0.1',
-            constraint_layout       : "1.1.3",
-            recyclerview            : "1.1.3",
-            recyclerview_x          : "1.2.0-alpha04",
-            startup                 : "1.0.0-alpha01",
+            support_x                      : "1.1.0",
+            support                        : "28.0.0",
+            multidex                       : '2.0.1',
+            constraint_layout              : "1.1.3",
+            recyclerview                   : "1.1.3",
+            recyclerview_x                 : "1.2.0-alpha04",
+            startup                        : "1.0.0-alpha01",
             //内存泄漏
-            leakcanary              : '2.4',
+            leakcanary                     : '2.4',
             // butterknife: "8.8.1",
-            glide                   : "4.11.0",
+            glide                          : "4.11.0",
 
-            dagger                  : "2.17",
+            dagger                         : "2.17",
 
-            objectboxVersion        : '2.6.0',
+            objectboxVersion               : '2.6.0',
             //路由
-            arouter_api             : "1.5.0",
-            arouter_compiler        : "1.2.2",
+            arouter_api                    : "1.5.0",
+            arouter_compiler               : "1.2.2",
             //屏幕适配
-            autosize                : "0.9.5",
+            autosize                       : "0.9.5",
             //
-            lifecycle_runtime       : "2.2.0",
-            archLifecycleVersion    : "2.2.0",
-            gson                    : "2.8.5",
+            lifecycle_runtime              : "2.2.0",
+            archLifecycleVersion           : "2.2.0",
+            gson                           : "2.8.5",
             //rxjava
-            rxjava2                 : "3.0.0",
-            rxandroid               : "3.0.0",
-            rxlifecycle             : "4.0.0",
-            rxbinding               : "4.0.0",
+            rxjava2                        : "3.0.0",
+            rxandroid                      : "3.0.0",
+            rxlifecycle                    : "4.0.0",
+            rxbinding                      : "4.0.0",
             //网络请求
-            okhttp                  : "4.9.0",
-            okhttpLogger            : '4.9.0',
+            okhttp                         : "4.9.0",
+            okhttpLogger                   : '4.9.0',
 
-            retrofit                : '2.9.0',
-            retrofitRxjava3Adapter  : '2.9.0',
-            retrofitScalars         : '2.9.0',
-            retrofitGsonConveter    : '2.9.0',
+            retrofit                       : '2.9.0',
+            retrofitRxjava3Adapter         : '2.9.0',
+            retrofitScalars                : '2.9.0',
+            retrofitGsonConveter           : '2.9.0',
 
             //nineoldandroids
-            nineoldandroids         : '2.4.0',
+            nineoldandroids                : '2.4.0',
 
             //图片加载
-            fresco                  : '2.2.0',
-            imagepipeline_okhttp3   : '0.12.0+',
+            fresco                         : '2.2.0',
+            imagepipeline_okhttp3          : '0.12.0+',
 
             //动态权限
-            rxPermission            : '0.10.2',
-            permissionsDispatcher   : '3.3.1',
+            rxPermission                   : '0.10.2',
+            permissionsDispatcher          : '3.3.1',
 
             //databinding
-            bindingcollectionadapter: '4.0.0',//****注意版本2.3.0-beta1
+            bindingcollectionadapter       : '4.0.0',//****注意版本2.3.0-beta1
+            bindingcollectionadapter_paging: '3.1.1',//****注意版本2.3.0-beta1
 
             //class注入
-            aspectJ                 : '1.9.2',
-            smartRefreshLayout      : '2.0.1',
+            aspectJ                        : '1.9.2',
+            smartRefreshLayout             : '2.0.1',
 
-            livedatabus             : '1.7.2'
+            livedatabus                    : '1.7.2'
     ]
 
     dependencies = [
@@ -110,11 +111,11 @@ ext {
             "imagepipeline_okhttp3"              : "com.facebook.fresco:imagepipeline-okhttp3:${dependVersion.imagepipeline_okhttp3}",
 
             "arouter_api"                        : "com.alibaba:arouter-api:${dependVersion.arouter_api}",
-            arouter_compiler                     : "com.alibaba:arouter-compiler:${dependVersion.arouter_compiler}",
+            "arouter_compiler"                     : "com.alibaba:arouter-compiler:${dependVersion.arouter_compiler}",
 
-            autosize                             : "me.jessyan:autosize:${dependVersion.autosize}",
+            "autosize"                             : "me.jessyan:autosize:${dependVersion.autosize}",
             //下啦刷新 SmartRefreshLayout  https://github.com/scwang90/SmartRefreshLayout
-            smartRefreshLayout                   : "com.scwang.smartrefresh:SmartRefreshLayout:${dependVersion.smartRefreshLayout}",
+            "smartRefreshLayout"                   : "com.scwang.smartrefresh:SmartRefreshLayout:${dependVersion.smartRefreshLayout}",
 
 
 
@@ -123,7 +124,7 @@ ext {
             bindingcollectionadapter             : "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:${dependVersion.bindingcollectionadapter}",
             bindingcollectionadapter_recyclerview: "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:${dependVersion.bindingcollectionadapter}",
             bindingcollectionadapter_viewpager2  : "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-viewpager2:${dependVersion.bindingcollectionadapter}",
-
+            bindingcollectionadapter_paging      : "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-paging:${dependVersion.bindingcollectionadapter_paging}",
 
             //注解动态权限  https://github.com/permissions-dispatcher/PermissionsDispatcher
             permissionsdispatcher                : "com.github.hotchemi:permissionsdispatcher:${dependVersion.permissionsDispatcher}",
@@ -160,6 +161,8 @@ ext {
             dagger2_android                      : "com.google.dagger:dagger-android:${dependVersion.dagger}",
             dagger2_support                      : "com.google.dagger:dagger-android-support:${dependVersion.dagger}",
             dagger2_processor                    : "com.google.dagger:dagger-android-processor:${dependVersion.dagger}"
+
+
     ]
 
     subprojects {
