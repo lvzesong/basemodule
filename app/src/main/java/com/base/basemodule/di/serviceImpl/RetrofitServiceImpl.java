@@ -60,7 +60,7 @@ public class RetrofitServiceImpl implements IRetrofitService {
                     .connectTimeout(15, TimeUnit.SECONDS)
                     .readTimeout(15, TimeUnit.SECONDS)
                     .writeTimeout(15, TimeUnit.SECONDS)
-                    .retryOnConnectionFailure(false) //取消自动重连
+                    .retryOnConnectionFailure(true) //取消自动重连
                     // .addNetworkInterceptor(new StethoInterceptor())
                     .build();
 

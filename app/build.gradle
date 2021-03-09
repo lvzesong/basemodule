@@ -111,6 +111,9 @@ dependencies {
     //livedatabus
     api rootProject.ext.dependencies["livedatabus"]
     api rootProject.ext.dependencies["arouter_api"]
+    api rootProject.ext.dependencies["bindingcollectionadapter_paging"]
+
+
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
     annotationProcessor rootProject.ext.dependencies["glide-compiler"]
     //api rootProject.ext.dependencies["glide-compiler"]
