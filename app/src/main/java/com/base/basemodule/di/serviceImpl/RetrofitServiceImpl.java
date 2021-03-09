@@ -48,6 +48,7 @@ public class RetrofitServiceImpl implements IRetrofitService {
                                     .request()
                                     .newBuilder()
                                     .addHeader("Connection", "close")
+                                    .header("Accept-Encoding", "identity")
                                     .build();
                             Response response = chain.proceed(originalRequest);
                             return response;
