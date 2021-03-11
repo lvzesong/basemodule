@@ -123,7 +123,7 @@ dependencies {
     api rootProject.ext.dependencies["bindingcollectionadapter_recyclerview"]
     api rootProject.ext.dependencies["bindingcollectionadapter_viewpager2"]
     api rootProject.ext.dependencies["bindingcollectionadapter"]
-    api rootProject.ext.dependencies["bindingcollectionadapter_paging"]
+    //api rootProject.ext.dependencies["bindingcollectionadapter_paging"]
 
     //okhttp
 

@@ -87,7 +87,7 @@ ext {
 
             //databinding
             bindingcollectionadapter       : '4.0.0',//****注意版本2.3.0-beta1
-            bindingcollectionadapter_paging: '3.1.1',//****注意版本2.3.0-beta1
+           // bindingcollectionadapter_paging: '3.1.1',//****注意版本2.3.0-beta1
 
             //class注入
             aspectJ                        : '1.9.2',
