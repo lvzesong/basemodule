@@ -67,9 +67,9 @@ public final class RetrofitModule {
                     // .addInterceptor(new LogInterceptor())
                     .addInterceptor(logInterceptor)
                     //.cache(new Cache())
-                    .connectTimeout(15, TimeUnit.SECONDS)
-                    .readTimeout(15, TimeUnit.SECONDS)
-                    .writeTimeout(15, TimeUnit.SECONDS)
+                    .connectTimeout(30, TimeUnit.SECONDS)
+                    .readTimeout(30, TimeUnit.SECONDS)
+                    .writeTimeout(30, TimeUnit.SECONDS)
                     .retryOnConnectionFailure(false) //取消自动重连
                     // .addNetworkInterceptor(new StethoInterceptor())
                     .build();

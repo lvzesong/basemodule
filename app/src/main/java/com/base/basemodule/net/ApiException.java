@@ -3,6 +3,7 @@ package com.base.basemodule.net;
  * Created by lzs on 2017/5/8 10:41
  * E-Mail Address：343067508@qq.com
  */
+
 import android.net.ParseException;
 import android.text.TextUtils;
 import android.util.Log;
@@ -57,8 +58,9 @@ public class ApiException extends RuntimeException {
             } else {
                 if (e == null || TextUtils.isEmpty(e.getMessage())) {
                     msg = "Unknown error";
+                } else {
+                    msg = e.getMessage();
                 }
-                msg = "Unknown error";
                 // Log.e("lzs", "其他错误，对用户隐藏:" + e.getMessage() + "    " + e.getClass().getSimpleName() + "  " + e.getLocalizedMessage());
             }
         } catch (Exception e1) {
