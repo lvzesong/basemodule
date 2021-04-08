@@ -58,6 +58,11 @@ android {
             jniLibs.srcDirs = ['src/main/jniLibs']
         }
     }
+    configurations.all {
+        resolutionStrategy {
+            force 'com.squareup.okhttp3:okhttp:3.12.0'
+        }
+    }
 
 }
 
@@ -139,7 +144,8 @@ dependencies {
     //debugImplementation "com.facebook.stetho:stetho-okhttp3:$rootProject.stetho"
     api(rootProject.ext.dependencies["retrofit"])
             {
-                exclude group: 'com.squareup.okhttp3'
+                exclude group: 'com.squareup.okhttp3'//排除组织依赖
+                exclude module: 'okhttp'//排除模块依赖
                 //指定禁止传递依赖
                 transitive false
             }
