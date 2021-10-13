@@ -169,7 +169,7 @@ dependencies {
     //    implementation "com.github.hotchemi:permissionsdispatcher:$rootProject.permissionsDispatcher"
 
     //    annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:$rootProject.permissionsDispatcher"
-    implementation 'com.orhanobut:logger:1.15'
+    implementation'com.orhanobut:logger:2.2.0'
     //dagger2
     api rootProject.ext.dependencies["dagger2_android"]
     api rootProject.ext.dependencies["dagger2_support"]
