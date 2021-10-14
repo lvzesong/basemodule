@@ -52,8 +52,8 @@ ext {
 
             objectboxVersion        : '2.6.0',
             //路由
-            arouter_api             : "1.5.0",
-            arouter_compiler        : "1.2.2",
+            arouter_api             : "1.5.2",
+            arouter_compiler        : "1.5.2",
             //屏幕适配
             autosize                : "0.9.5",
             //
