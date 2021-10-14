@@ -72,10 +72,8 @@ dependencies {
     api rootProject.ext.dependencies["constraint-layout"]
     api rootProject.ext.dependencies["recyclerview"]
     api rootProject.ext.dependencies["multidex"]
-    api rootProject.ext.dependencies["startup"]
+    //api rootProject.ext.dependencies["startup"]
     api 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
-
-    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
 
     //注解动态权限
     api rootProject.ext.dependencies["permissionsdispatcher"]
