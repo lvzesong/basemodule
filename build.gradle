@@ -61,7 +61,7 @@ ext {
             archLifecycleVersion    : "2.2.0",
             gson                    : "2.8.5",
             //rxjava
-            rxjava2                 : "3.0.0",
+            rxjava3                 : "3.0.0",
             rxandroid               : "3.0.0",
             rxlifecycle             : "4.0.0",
             rxbinding               : "4.0.0",
@@ -137,7 +137,7 @@ ext {
             lifecycle_compiler                   : "androidx.lifecycle:lifecycle-compiler:${dependVersion.archLifecycleVersion}",
 
             gson                                 : "com.google.code.gson:gson:${dependVersion.gson}",
-            rxjava2                              : "io.reactivex.rxjava3:rxjava:${dependVersion.rxjava2}",
+            rxjava3                              : "io.reactivex.rxjava3:rxjava:${dependVersion.rxjava3}",
             rxandroid                            : "io.reactivex.rxjava3:rxandroid:${dependVersion.rxandroid}",
             //https://github.com/trello/RxLifecycle
             rxlifecycle                          : "com.trello.rxlifecycle4:rxlifecycle:${dependVersion.rxlifecycle}",

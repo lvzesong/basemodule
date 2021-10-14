@@ -88,7 +88,7 @@ dependencies {
     api rootProject.ext.dependencies["gson"]
 
     //rxjava
-    api rootProject.ext.dependencies["rxjava2"]
+    api rootProject.ext.dependencies["rxjava3"]
 
     // Because RxAndroid releases are few and far between, it is recommended you also
 
